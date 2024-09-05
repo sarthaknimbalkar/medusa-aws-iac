@@ -2,14 +2,26 @@
 
 ### Table of Contents
 1. [Overview](#overview)
-2. [Prerequisites](#prerequisites)
-3. [Terraform Configuration](#terraform-configuration)
-4. [Continuous Deployment with GitHub Actions](#continuous-deployment-with-github-actions)
-5. [Accessing the Medusa Backend](#accessing-the-medusa-backend)
+2. [Project Overview](#project-overview)
+3. [Key Points to Highlight](#key-points-to-highlight)
+4. [Prerequisites](#prerequisites)
+5. [Terraform Configuration](#terraform-configuration)
+6. [Continuous Deployment with GitHub Actions](#continuous-deployment-with-github-actions)
+7. [Accessing the Medusa Backend](#accessing-the-medusa-backend)
+8. [Accessing the Deployed Service](#accessing-the-deployed-service)
 
 ### Overview
 
 This repository provides the configuration files and detailed instructions for deploying the Medusa open-source headless commerce platform backend on AWS, utilizing Terraform and ECS/Fargate. Additionally, it includes a GitHub Actions Continuous Deployment (CD) pipeline to automate the deployment process, ensuring seamless updates to your application.
+
+### Project Overview
+
+This project aims to deploy the Medusa headless commerce platform backend on AWS using Infrastructure as Code (IaC) with Terraform. We leverage AWS services like ECS (Elastic Container Service) with Fargate to handle container orchestration, and GitHub Actions to automate the Continuous Deployment (CD) pipeline.
+
+### Key Points to Highlight
+- **Scalability**: By using ECS with Fargate, the platform can scale automatically based on traffic and demand.
+- **Automation**: The entire setup and deployment process is automated using Terraform and GitHub Actions, reducing manual intervention and the potential for errors.
+- **Security**: The use of IAM roles, security groups, and VPC subnets ensures that the infrastructure is secure and access is tightly controlled.
 
 ### Prerequisites
 
@@ -62,7 +74,12 @@ After deploying your Medusa backend, you can access it as follows:
    
 2. **Access Medusa Backend**: Utilize the public IP to connect to your Medusa backend.
 
-By following this guide, you will successfully deploy the Medusa backend on AWS using Terraform and ECS/Fargate, along with a fully automated CD pipeline via GitHub Actions.
+### Accessing the Deployed Service
+
+- After deployment, the Medusa backend can be accessed via the load balancer or public IP associated with the ECS service. The specific URL or endpoint will depend on how the load balancer is configured in the Terraform setup.
+
+
+
 
 Citations:
 [1] https://github.com/geekcell/terraform-aws-ecs-fargate-codedeploy
