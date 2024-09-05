@@ -20,7 +20,13 @@ jobs:
         working-directory: ./terraform
         run: terraform init
 
-      - name: Apply Terraform
+      - name: Check for Existing Infrastructure
+        id: plan
+        working-directory: ./terraform
+        run: terraform plan -refresh-only -out=plan.out
+
+      - name: Apply Terraform if Changes Exist
+        if: steps.plan.outputs.outcome == 'changes'
         working-directory: ./terraform
         run: terraform apply -auto-approve
         env:
